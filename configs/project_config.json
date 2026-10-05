@@ -2,11 +2,18 @@
   "project_name": "Capstone-CyberSec-ML-LLM",
   "domain": "synthetic_banking_employee_audit_logs",
   "random_seed": 42,
+  "validation_seed": 142,
+  "test_seed": 242,
   "roles": [
     "Teller",
     "Customer Service",
     "Manager"
   ],
   "observation_unit": "user_day",
-  "main_model": "IsolationForest"
+  "main_model": "IsolationForest",
+  "isolation_forest": {
+    "n_estimators": 200,
+    "max_samples": "auto",
+    "contamination": "auto"
+  }
 }
