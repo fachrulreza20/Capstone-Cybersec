@@ -1,0 +1,2455 @@
+{
+  "candidate_selection": "Isolation Forest anomaly OR deterministic rule anomaly",
+  "input_design": "Structured user-day behavioural context. Raw event timeline excluded.",
+  "candidate_count": 72,
+  "candidates": [
+    {
+      "employee_context": {
+        "user_id": "C001",
+        "date": "2026-03-20",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 37,
+        "transaction_count": 4,
+        "customer_record_access_count": 26,
+        "download_event_count": 5,
+        "download_total": 12,
+        "records_accessed_total": 87,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.768611111111111,
+        "last_activity_hour": 16.481666666666666,
+        "activity_duration_hours": 7.713055555555556
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4266305388460608,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C001",
+        "date": "2026-03-25",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 45,
+        "transaction_count": 3,
+        "customer_record_access_count": 25,
+        "download_event_count": 15,
+        "download_total": 37,
+        "records_accessed_total": 58,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.983055555555556,
+        "last_activity_hour": 17.31388888888889,
+        "activity_duration_hours": 8.330833333333333
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5256224035668584,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C002",
+        "date": "2026-03-16",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 43,
+        "transaction_count": 2,
+        "customer_record_access_count": 33,
+        "download_event_count": 6,
+        "download_total": 13,
+        "records_accessed_total": 96,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.485833333333332,
+        "last_activity_hour": 16.30888888888889,
+        "activity_duration_hours": 7.823055555555555
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4638385719048612,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C002",
+        "date": "2026-03-18",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 45,
+        "transaction_count": 1,
+        "customer_record_access_count": 29,
+        "download_event_count": 13,
+        "download_total": 35,
+        "records_accessed_total": 87,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.748055555555554,
+        "last_activity_hour": 16.105555555555558,
+        "activity_duration_hours": 7.3575
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5576918145814787,
+        "threshold": 0.5521464960734026,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": true,
+        "rules_triggered": 2,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C002",
+        "date": "2026-03-19",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 41,
+        "transaction_count": 4,
+        "customer_record_access_count": 30,
+        "download_event_count": 5,
+        "download_total": 16,
+        "records_accessed_total": 66,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.012222222222222,
+        "last_activity_hour": 17.48611111111111,
+        "activity_duration_hours": 8.473888888888888
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4357095398891439,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C002",
+        "date": "2026-03-23",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 34,
+        "transaction_count": 5,
+        "customer_record_access_count": 21,
+        "download_event_count": 6,
+        "download_total": 18,
+        "records_accessed_total": 44,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.309166666666668,
+        "last_activity_hour": 17.78777777777778,
+        "activity_duration_hours": 8.47861111111111
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5135329820180677,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C002",
+        "date": "2026-03-24",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 33,
+        "transaction_count": 5,
+        "customer_record_access_count": 21,
+        "download_event_count": 5,
+        "download_total": 12,
+        "records_accessed_total": 53,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.141666666666666,
+        "last_activity_hour": 17.5975,
+        "activity_duration_hours": 8.455833333333333
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.49244231140543904,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C003",
+        "date": "2026-03-27",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 42,
+        "transaction_count": 3,
+        "customer_record_access_count": 25,
+        "download_event_count": 11,
+        "download_total": 32,
+        "records_accessed_total": 93,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.912222222222223,
+        "last_activity_hour": 17.925555555555558,
+        "activity_duration_hours": 9.013333333333334
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5550739021139568,
+        "threshold": 0.5521464960734026,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 2,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C004",
+        "date": "2026-03-18",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 47,
+        "transaction_count": 7,
+        "customer_record_access_count": 34,
+        "download_event_count": 4,
+        "download_total": 13,
+        "records_accessed_total": 96,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.690555555555555,
+        "last_activity_hour": 16.96722222222222,
+        "activity_duration_hours": 8.276666666666667
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5157986007581904,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C004",
+        "date": "2026-03-19",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 37,
+        "transaction_count": 5,
+        "customer_record_access_count": 24,
+        "download_event_count": 6,
+        "download_total": 15,
+        "records_accessed_total": 63,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.283055555555556,
+        "last_activity_hour": 17.447777777777777,
+        "activity_duration_hours": 8.164722222222222
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.43924849871483457,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C004",
+        "date": "2026-03-20",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 46,
+        "transaction_count": 2,
+        "customer_record_access_count": 30,
+        "download_event_count": 12,
+        "download_total": 37,
+        "records_accessed_total": 63,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.063333333333334,
+        "last_activity_hour": 17.010555555555555,
+        "activity_duration_hours": 7.947222222222222
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5066842059787385,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C005",
+        "date": "2026-03-16",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 52,
+        "transaction_count": 5,
+        "customer_record_access_count": 33,
+        "download_event_count": 12,
+        "download_total": 35,
+        "records_accessed_total": 77,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.67361111111111,
+        "last_activity_hour": 15.767222222222223,
+        "activity_duration_hours": 7.0936111111111115
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.6013144773083432,
+        "threshold": 0.5521464960734026,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C005",
+        "date": "2026-03-18",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 44,
+        "transaction_count": 5,
+        "customer_record_access_count": 23,
+        "download_event_count": 14,
+        "download_total": 37,
+        "records_accessed_total": 64,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.807777777777778,
+        "last_activity_hour": 16.459722222222222,
+        "activity_duration_hours": 7.651944444444444
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5158615983511117,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C005",
+        "date": "2026-03-26",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 47,
+        "transaction_count": 4,
+        "customer_record_access_count": 36,
+        "download_event_count": 5,
+        "download_total": 9,
+        "records_accessed_total": 93,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.586944444444445,
+        "last_activity_hour": 16.485277777777778,
+        "activity_duration_hours": 7.898333333333333
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4922792114251755,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C006",
+        "date": "2026-03-16",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 45,
+        "transaction_count": 7,
+        "customer_record_access_count": 30,
+        "download_event_count": 5,
+        "download_total": 35,
+        "records_accessed_total": 89,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.179166666666665,
+        "last_activity_hour": 17.822777777777777,
+        "activity_duration_hours": 9.643611111111111
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.6151577277152549,
+        "threshold": 0.5521464960734026,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": true,
+        "high_record_access": true,
+        "rules_triggered": 3,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C007",
+        "date": "2026-03-19",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 45,
+        "transaction_count": 4,
+        "customer_record_access_count": 29,
+        "download_event_count": 9,
+        "download_total": 33,
+        "records_accessed_total": 85,
+        "vip_access_count": 4,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.458055555555555,
+        "last_activity_hour": 17.630555555555556,
+        "activity_duration_hours": 9.1725
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.6016953499297093,
+        "threshold": 0.5521464960734026,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C007",
+        "date": "2026-03-24",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 42,
+        "transaction_count": 3,
+        "customer_record_access_count": 27,
+        "download_event_count": 10,
+        "download_total": 26,
+        "records_accessed_total": 68,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.159444444444444,
+        "last_activity_hour": 17.811666666666667,
+        "activity_duration_hours": 8.652222222222223
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.48476186048131775,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C007",
+        "date": "2026-03-26",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 51,
+        "transaction_count": 6,
+        "customer_record_access_count": 29,
+        "download_event_count": 14,
+        "download_total": 37,
+        "records_accessed_total": 74,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.053333333333335,
+        "last_activity_hour": 16.559722222222224,
+        "activity_duration_hours": 7.506388888888889
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.590112284392153,
+        "threshold": 0.5521464960734026,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C008",
+        "date": "2026-03-25",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 40,
+        "transaction_count": 4,
+        "customer_record_access_count": 28,
+        "download_event_count": 6,
+        "download_total": 34,
+        "records_accessed_total": 71,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.089722222222223,
+        "last_activity_hour": 16.798333333333336,
+        "activity_duration_hours": 7.708611111111111
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4429591432059369,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C009",
+        "date": "2026-03-16",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 43,
+        "transaction_count": 3,
+        "customer_record_access_count": 23,
+        "download_event_count": 15,
+        "download_total": 39,
+        "records_accessed_total": 57,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.661944444444444,
+        "last_activity_hour": 17.126944444444444,
+        "activity_duration_hours": 8.465
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5262871392739479,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C009",
+        "date": "2026-03-17",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 40,
+        "transaction_count": 4,
+        "customer_record_access_count": 22,
+        "download_event_count": 11,
+        "download_total": 30,
+        "records_accessed_total": 93,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.210833333333333,
+        "last_activity_hour": 17.67777777777778,
+        "activity_duration_hours": 9.466944444444444
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5614794592092001,
+        "threshold": 0.5521464960734026,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 2,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C009",
+        "date": "2026-03-23",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 40,
+        "transaction_count": 6,
+        "customer_record_access_count": 22,
+        "download_event_count": 10,
+        "download_total": 23,
+        "records_accessed_total": 54,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.058611111111112,
+        "last_activity_hour": 17.442777777777778,
+        "activity_duration_hours": 8.384166666666667
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4455511939930457,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C010",
+        "date": "2026-03-16",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 46,
+        "transaction_count": 4,
+        "customer_record_access_count": 34,
+        "download_event_count": 6,
+        "download_total": 15,
+        "records_accessed_total": 90,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.895277777777777,
+        "last_activity_hour": 16.861944444444447,
+        "activity_duration_hours": 7.966666666666667
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4651293664333614,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "C010",
+        "date": "2026-03-25",
+        "role": "Customer Service",
+        "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 38,
+        "transaction_count": 4,
+        "customer_record_access_count": 26,
+        "download_event_count": 6,
+        "download_total": 17,
+        "records_accessed_total": 53,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.024444444444445,
+        "last_activity_hour": 17.789722222222224,
+        "activity_duration_hours": 8.765277777777778
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4702642810701426,
+        "threshold": 0.5521464960734026,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M001",
+        "date": "2026-03-20",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 35,
+        "transaction_count": 2,
+        "customer_record_access_count": 12,
+        "download_event_count": 19,
+        "download_total": 88,
+        "records_accessed_total": 36,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.302222222222223,
+        "last_activity_hour": 16.18111111111111,
+        "activity_duration_hours": 7.878888888888889
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.46659640567686356,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M001",
+        "date": "2026-03-23",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 40,
+        "transaction_count": 4,
+        "customer_record_access_count": 22,
+        "download_event_count": 12,
+        "download_total": 55,
+        "records_accessed_total": 72,
+        "vip_access_count": 3,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.589722222222223,
+        "last_activity_hour": 17.301111111111112,
+        "activity_duration_hours": 8.711388888888889
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5434304082831661,
+        "threshold": 0.5379024781433652,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M002",
+        "date": "2026-03-20",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 25,
+        "transaction_count": 1,
+        "customer_record_access_count": 11,
+        "download_event_count": 10,
+        "download_total": 87,
+        "records_accessed_total": 55,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.976111111111111,
+        "last_activity_hour": 18.3925,
+        "activity_duration_hours": 9.41638888888889
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5333941519581956,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 2,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M002",
+        "date": "2026-03-26",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 37,
+        "transaction_count": 5,
+        "customer_record_access_count": 19,
+        "download_event_count": 11,
+        "download_total": 47,
+        "records_accessed_total": 58,
+        "vip_access_count": 3,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.42861111111111,
+        "last_activity_hour": 16.074166666666667,
+        "activity_duration_hours": 7.645555555555555
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5249243888576516,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M003",
+        "date": "2026-03-23",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 22,
+        "transaction_count": 3,
+        "customer_record_access_count": 11,
+        "download_event_count": 6,
+        "download_total": 90,
+        "records_accessed_total": 38,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.966944444444444,
+        "last_activity_hour": 17.65694444444444,
+        "activity_duration_hours": 8.69
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.49186450042120705,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M003",
+        "date": "2026-03-24",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 36,
+        "transaction_count": 4,
+        "customer_record_access_count": 16,
+        "download_event_count": 14,
+        "download_total": 60,
+        "records_accessed_total": 65,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.6325,
+        "last_activity_hour": 16.889444444444443,
+        "activity_duration_hours": 8.256944444444445
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.45815884470041973,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M004",
+        "date": "2026-03-16",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 37,
+        "transaction_count": 2,
+        "customer_record_access_count": 20,
+        "download_event_count": 13,
+        "download_total": 55,
+        "records_accessed_total": 55,
+        "vip_access_count": 4,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.27888888888889,
+        "last_activity_hour": 18.380833333333335,
+        "activity_duration_hours": 9.101944444444445
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5771273908932699,
+        "threshold": 0.5379024781433652,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M004",
+        "date": "2026-03-25",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 22,
+        "transaction_count": 3,
+        "customer_record_access_count": 8,
+        "download_event_count": 9,
+        "download_total": 42,
+        "records_accessed_total": 59,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.734444444444444,
+        "last_activity_hour": 17.64,
+        "activity_duration_hours": 8.905555555555555
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4643691286696373,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M004",
+        "date": "2026-03-26",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 32,
+        "transaction_count": 1,
+        "customer_record_access_count": 11,
+        "download_event_count": 18,
+        "download_total": 104,
+        "records_accessed_total": 34,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.075555555555555,
+        "last_activity_hour": 16.940833333333334,
+        "activity_duration_hours": 7.865277777777778
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5155417625152526,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M005",
+        "date": "2026-03-16",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 38,
+        "transaction_count": 0,
+        "customer_record_access_count": 19,
+        "download_event_count": 17,
+        "download_total": 69,
+        "records_accessed_total": 59,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.986666666666666,
+        "last_activity_hour": 17.53611111111111,
+        "activity_duration_hours": 8.549444444444445
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5117481913811573,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M005",
+        "date": "2026-03-25",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 34,
+        "transaction_count": 3,
+        "customer_record_access_count": 18,
+        "download_event_count": 11,
+        "download_total": 52,
+        "records_accessed_total": 64,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 7.788333333333333,
+        "last_activity_hour": 16.328611111111112,
+        "activity_duration_hours": 8.540277777777778
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.483284163608343,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M006",
+        "date": "2026-03-17",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 37,
+        "transaction_count": 4,
+        "customer_record_access_count": 20,
+        "download_event_count": 11,
+        "download_total": 49,
+        "records_accessed_total": 61,
+        "vip_access_count": 3,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.405833333333334,
+        "last_activity_hour": 16.36527777777778,
+        "activity_duration_hours": 7.959444444444444
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5207595625224736,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M007",
+        "date": "2026-03-17",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 31,
+        "transaction_count": 2,
+        "customer_record_access_count": 18,
+        "download_event_count": 9,
+        "download_total": 41,
+        "records_accessed_total": 63,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.152777777777779,
+        "last_activity_hour": 16.578333333333333,
+        "activity_duration_hours": 8.425555555555556
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.46265009083618697,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M007",
+        "date": "2026-03-18",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 21,
+        "transaction_count": 1,
+        "customer_record_access_count": 6,
+        "download_event_count": 12,
+        "download_total": 53,
+        "records_accessed_total": 22,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.749722222222221,
+        "last_activity_hour": 18.640833333333333,
+        "activity_duration_hours": 9.891111111111112
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5197250993813426,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M007",
+        "date": "2026-03-24",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 23,
+        "transaction_count": 2,
+        "customer_record_access_count": 8,
+        "download_event_count": 10,
+        "download_total": 82,
+        "records_accessed_total": 55,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.235555555555555,
+        "last_activity_hour": 18.855555555555558,
+        "activity_duration_hours": 10.62
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5490524672557884,
+        "threshold": 0.5379024781433652,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M007",
+        "date": "2026-03-25",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 30,
+        "transaction_count": 1,
+        "customer_record_access_count": 14,
+        "download_event_count": 12,
+        "download_total": 98,
+        "records_accessed_total": 55,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.51888888888889,
+        "last_activity_hour": 18.25777777777778,
+        "activity_duration_hours": 9.738888888888889
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5134332790653682,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 2,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M007",
+        "date": "2026-03-26",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 32,
+        "transaction_count": 3,
+        "customer_record_access_count": 13,
+        "download_event_count": 13,
+        "download_total": 92,
+        "records_accessed_total": 65,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.20111111111111,
+        "last_activity_hour": 18.36888888888889,
+        "activity_duration_hours": 10.167777777777777
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5444244188883192,
+        "threshold": 0.5379024781433652,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": true,
+        "high_record_access": true,
+        "rules_triggered": 3,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M008",
+        "date": "2026-03-19",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 38,
+        "transaction_count": 5,
+        "customer_record_access_count": 20,
+        "download_event_count": 11,
+        "download_total": 55,
+        "records_accessed_total": 46,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.028333333333334,
+        "last_activity_hour": 18.515555555555554,
+        "activity_duration_hours": 9.487222222222222
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5388708533314897,
+        "threshold": 0.5379024781433652,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M008",
+        "date": "2026-03-25",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 33,
+        "transaction_count": 6,
+        "customer_record_access_count": 7,
+        "download_event_count": 18,
+        "download_total": 92,
+        "records_accessed_total": 16,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.949722222222222,
+        "last_activity_hour": 16.91333333333333,
+        "activity_duration_hours": 7.963611111111111
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5384349793066496,
+        "threshold": 0.5379024781433652,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M008",
+        "date": "2026-03-27",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 35,
+        "transaction_count": 2,
+        "customer_record_access_count": 13,
+        "download_event_count": 18,
+        "download_total": 98,
+        "records_accessed_total": 32,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.002777777777778,
+        "last_activity_hour": 17.052500000000002,
+        "activity_duration_hours": 9.049722222222222
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4860873207513856,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M009",
+        "date": "2026-03-24",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 36,
+        "transaction_count": 4,
+        "customer_record_access_count": 17,
+        "download_event_count": 13,
+        "download_total": 70,
+        "records_accessed_total": 56,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.45722222222222,
+        "last_activity_hour": 17.372777777777777,
+        "activity_duration_hours": 8.915555555555555
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4459866091744377,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M009",
+        "date": "2026-03-25",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 41,
+        "transaction_count": 2,
+        "customer_record_access_count": 17,
+        "download_event_count": 20,
+        "download_total": 88,
+        "records_accessed_total": 54,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.251111111111111,
+        "last_activity_hour": 16.429722222222225,
+        "activity_duration_hours": 8.178611111111111
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5301724306780996,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M009",
+        "date": "2026-03-26",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 33,
+        "transaction_count": 4,
+        "customer_record_access_count": 12,
+        "download_event_count": 15,
+        "download_total": 85,
+        "records_accessed_total": 60,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.066111111111113,
+        "last_activity_hour": 17.29361111111111,
+        "activity_duration_hours": 8.2275
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.480832650654365,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M010",
+        "date": "2026-03-19",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 38,
+        "transaction_count": 2,
+        "customer_record_access_count": 25,
+        "download_event_count": 9,
+        "download_total": 44,
+        "records_accessed_total": 64,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.586388888888889,
+        "last_activity_hour": 16.824444444444445,
+        "activity_duration_hours": 8.238055555555556
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5206240829949403,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "M010",
+        "date": "2026-03-25",
+        "role": "Manager",
+        "role_context": "Operational supervision role with moderate customer-record access and comparatively higher reporting and data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 35,
+        "transaction_count": 5,
+        "customer_record_access_count": 9,
+        "download_event_count": 19,
+        "download_total": 88,
+        "records_accessed_total": 28,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.940277777777778,
+        "last_activity_hour": 16.893055555555556,
+        "activity_duration_hours": 7.9527777777777775
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.502874043051707,
+        "threshold": 0.5379024781433652,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T001",
+        "date": "2026-03-26",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 48,
+        "transaction_count": 22,
+        "customer_record_access_count": 23,
+        "download_event_count": 1,
+        "download_total": 3,
+        "records_accessed_total": 53,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.046388888888888,
+        "last_activity_hour": 17.518055555555556,
+        "activity_duration_hours": 8.471666666666666
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4689785580360902,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T002",
+        "date": "2026-03-19",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 42,
+        "transaction_count": 19,
+        "customer_record_access_count": 19,
+        "download_event_count": 2,
+        "download_total": 5,
+        "records_accessed_total": 35,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.009444444444444,
+        "last_activity_hour": 17.490555555555556,
+        "activity_duration_hours": 8.481111111111112
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4114234188995895,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T002",
+        "date": "2026-03-26",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 43,
+        "transaction_count": 13,
+        "customer_record_access_count": 20,
+        "download_event_count": 8,
+        "download_total": 18,
+        "records_accessed_total": 45,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.575555555555555,
+        "last_activity_hour": 16.186944444444446,
+        "activity_duration_hours": 7.6113888888888885
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5237894796903292,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T002",
+        "date": "2026-03-27",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 43,
+        "transaction_count": 12,
+        "customer_record_access_count": 26,
+        "download_event_count": 3,
+        "download_total": 8,
+        "records_accessed_total": 65,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.030277777777778,
+        "last_activity_hour": 17.019166666666667,
+        "activity_duration_hours": 7.988888888888889
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4830298628709858,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T003",
+        "date": "2026-03-18",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 50,
+        "transaction_count": 17,
+        "customer_record_access_count": 27,
+        "download_event_count": 4,
+        "download_total": 9,
+        "records_accessed_total": 65,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.726111111111111,
+        "last_activity_hour": 16.43611111111111,
+        "activity_duration_hours": 7.71
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4697345533091723,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T004",
+        "date": "2026-03-20",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 48,
+        "transaction_count": 19,
+        "customer_record_access_count": 21,
+        "download_event_count": 5,
+        "download_total": 20,
+        "records_accessed_total": 53,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.622777777777777,
+        "last_activity_hour": 18.116666666666667,
+        "activity_duration_hours": 9.49388888888889
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.582252784721782,
+        "threshold": 0.5341784647040614,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 2,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T004",
+        "date": "2026-03-25",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 42,
+        "transaction_count": 18,
+        "customer_record_access_count": 19,
+        "download_event_count": 3,
+        "download_total": 5,
+        "records_accessed_total": 57,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.788333333333334,
+        "last_activity_hour": 16.353611111111114,
+        "activity_duration_hours": 7.565277777777778
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4232336364658411,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T005",
+        "date": "2026-03-16",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 51,
+        "transaction_count": 22,
+        "customer_record_access_count": 22,
+        "download_event_count": 5,
+        "download_total": 17,
+        "records_accessed_total": 55,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.8025,
+        "last_activity_hour": 17.184166666666666,
+        "activity_duration_hours": 8.381666666666666
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.46362461283562983,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T005",
+        "date": "2026-03-23",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 39,
+        "transaction_count": 22,
+        "customer_record_access_count": 10,
+        "download_event_count": 5,
+        "download_total": 13,
+        "records_accessed_total": 18,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.371111111111112,
+        "last_activity_hour": 16.359166666666667,
+        "activity_duration_hours": 7.9880555555555555
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5515582673685558,
+        "threshold": 0.5341784647040614,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 0,
+        "prediction": "Normal"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T006",
+        "date": "2026-03-18",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 47,
+        "transaction_count": 19,
+        "customer_record_access_count": 20,
+        "download_event_count": 5,
+        "download_total": 15,
+        "records_accessed_total": 54,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.005277777777778,
+        "last_activity_hour": 17.824444444444445,
+        "activity_duration_hours": 8.819166666666666
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5017219022338913,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T006",
+        "date": "2026-03-24",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 51,
+        "transaction_count": 22,
+        "customer_record_access_count": 22,
+        "download_event_count": 4,
+        "download_total": 16,
+        "records_accessed_total": 50,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.999444444444444,
+        "last_activity_hour": 17.924722222222222,
+        "activity_duration_hours": 8.925277777777778
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4993285914568903,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T007",
+        "date": "2026-03-17",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 29,
+        "transaction_count": 16,
+        "customer_record_access_count": 6,
+        "download_event_count": 5,
+        "download_total": 9,
+        "records_accessed_total": 9,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.70611111111111,
+        "last_activity_hour": 17.116388888888892,
+        "activity_duration_hours": 8.410277777777777
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5410696807608922,
+        "threshold": 0.5341784647040614,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 0,
+        "prediction": "Normal"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T007",
+        "date": "2026-03-20",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 44,
+        "transaction_count": 14,
+        "customer_record_access_count": 17,
+        "download_event_count": 11,
+        "download_total": 16,
+        "records_accessed_total": 36,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.841944444444445,
+        "last_activity_hour": 17.386666666666667,
+        "activity_duration_hours": 8.544722222222223
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5397311925062174,
+        "threshold": 0.5341784647040614,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 0,
+        "prediction": "Normal"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T007",
+        "date": "2026-03-24",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 50,
+        "transaction_count": 16,
+        "customer_record_access_count": 20,
+        "download_event_count": 12,
+        "download_total": 18,
+        "records_accessed_total": 41,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.621944444444445,
+        "last_activity_hour": 17.25861111111111,
+        "activity_duration_hours": 8.636666666666667
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5293701424410103,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T008",
+        "date": "2026-03-19",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 55,
+        "transaction_count": 24,
+        "customer_record_access_count": 25,
+        "download_event_count": 4,
+        "download_total": 6,
+        "records_accessed_total": 48,
+        "vip_access_count": 2,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.904722222222222,
+        "last_activity_hour": 17.578611111111112,
+        "activity_duration_hours": 8.67388888888889
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5664463461311335,
+        "threshold": 0.5341784647040614,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T008",
+        "date": "2026-03-23",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 36,
+        "transaction_count": 19,
+        "customer_record_access_count": 11,
+        "download_event_count": 4,
+        "download_total": 20,
+        "records_accessed_total": 26,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.935,
+        "last_activity_hour": 16.609722222222224,
+        "activity_duration_hours": 7.674722222222222
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.4918998630892513,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T008",
+        "date": "2026-03-27",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 40,
+        "transaction_count": 16,
+        "customer_record_access_count": 15,
+        "download_event_count": 7,
+        "download_total": 13,
+        "records_accessed_total": 29,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.192777777777778,
+        "last_activity_hour": 17.72722222222222,
+        "activity_duration_hours": 8.534444444444444
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.47984629006809526,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T009",
+        "date": "2026-03-17",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 50,
+        "transaction_count": 20,
+        "customer_record_access_count": 19,
+        "download_event_count": 9,
+        "download_total": 22,
+        "records_accessed_total": 34,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.346944444444444,
+        "last_activity_hour": 17.37361111111111,
+        "activity_duration_hours": 9.026666666666667
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5553799559071694,
+        "threshold": 0.5341784647040614,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T009",
+        "date": "2026-03-18",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 45,
+        "transaction_count": 18,
+        "customer_record_access_count": 14,
+        "download_event_count": 11,
+        "download_total": 20,
+        "records_accessed_total": 28,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.956944444444444,
+        "last_activity_hour": 16.701666666666664,
+        "activity_duration_hours": 7.744722222222222
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5094972340954821,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T009",
+        "date": "2026-03-26",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 41,
+        "transaction_count": 13,
+        "customer_record_access_count": 20,
+        "download_event_count": 6,
+        "download_total": 9,
+        "records_accessed_total": 38,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 9.301111111111112,
+        "last_activity_hour": 17.66638888888889,
+        "activity_duration_hours": 8.365277777777777
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.46022735512291024,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T009",
+        "date": "2026-03-27",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 45,
+        "transaction_count": 20,
+        "customer_record_access_count": 17,
+        "download_event_count": 5,
+        "download_total": 20,
+        "records_accessed_total": 51,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.464722222222221,
+        "last_activity_hour": 17.683611111111112,
+        "activity_duration_hours": 9.21888888888889
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5340634281658321,
+        "threshold": 0.5341784647040614,
+        "prediction": "Normal"
+      },
+      "rule_evidence": {
+        "after_hours": true,
+        "large_export": true,
+        "high_record_access": false,
+        "rules_triggered": 2,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T010",
+        "date": "2026-03-25",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 57,
+        "transaction_count": 19,
+        "customer_record_access_count": 33,
+        "download_event_count": 3,
+        "download_total": 5,
+        "records_accessed_total": 73,
+        "vip_access_count": 0,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.72861111111111,
+        "last_activity_hour": 16.50111111111111,
+        "activity_duration_hours": 7.7725
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.538922376108581,
+        "threshold": 0.5341784647040614,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": true,
+        "rules_triggered": 1,
+        "prediction": "Anomaly"
+      }
+    },
+    {
+      "employee_context": {
+        "user_id": "T010",
+        "date": "2026-03-26",
+        "role": "Teller",
+        "role_context": "Daily transaction-processing role with moderate customer-record access and normally limited data export activity."
+      },
+      "behaviour_summary": {
+        "event_count": 31,
+        "transaction_count": 18,
+        "customer_record_access_count": 10,
+        "download_event_count": 1,
+        "download_total": 3,
+        "records_accessed_total": 21,
+        "vip_access_count": 1,
+        "failed_login_count": 0,
+        "unknown_ip_count": 0,
+        "first_activity_hour": 8.987222222222222,
+        "last_activity_hour": 16.797222222222224,
+        "activity_duration_hours": 7.81
+      },
+      "ml_evidence": {
+        "anomaly_score": 0.5577411218891963,
+        "threshold": 0.5341784647040614,
+        "prediction": "Anomaly"
+      },
+      "rule_evidence": {
+        "after_hours": false,
+        "large_export": false,
+        "high_record_access": false,
+        "rules_triggered": 0,
+        "prediction": "Normal"
+      }
+    }
+  ]
+}
