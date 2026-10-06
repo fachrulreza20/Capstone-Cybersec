@@ -1,0 +1,10 @@
+experiment,difficulty,scenario,anomaly_cases,detected,missed,detection_rate
+experiment_1,obvious,temporal_combined,12,12,0,1.0
+experiment_1,obvious,unusual_export,9,1,8,0.1111111111111111
+experiment_1,obvious,unusual_record_access,9,1,8,0.1111111111111111
+experiment_2,moderate,temporal_combined,12,12,0,1.0
+experiment_2,moderate,unusual_export,9,1,8,0.1111111111111111
+experiment_2,moderate,unusual_record_access,9,1,8,0.1111111111111111
+experiment_3,subtle,temporal_combined,12,7,5,0.5833333333333334
+experiment_3,subtle,unusual_export,9,0,9,0.0
+experiment_3,subtle,unusual_record_access,9,1,8,0.1111111111111111

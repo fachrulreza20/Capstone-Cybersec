@@ -1,0 +1,31 @@
+case_id,user_id,date,role,scenario,difficulty,ground_truth,target_download_total,target_records_accessed_total,target_last_activity_hour
+CASE001,C002,2026-03-16,Customer Service,unusual_record_access,obvious,1,,159.0,
+CASE002,C006,2026-03-16,Customer Service,temporal_combined,obvious,1,61.0,135.0,21.19715603528664
+CASE003,C007,2026-03-16,Customer Service,unusual_export,obvious,1,77.0,,
+CASE004,C009,2026-03-17,Customer Service,temporal_combined,obvious,1,57.0,127.0,22.40132203259597
+CASE005,C002,2026-03-18,Customer Service,unusual_record_access,obvious,1,,157.0,
+CASE006,C007,2026-03-19,Customer Service,temporal_combined,obvious,1,60.0,122.0,22.976344746820782
+CASE007,C001,2026-03-20,Customer Service,unusual_record_access,obvious,1,,167.0,
+CASE008,C008,2026-03-23,Customer Service,unusual_export,obvious,1,79.0,,
+CASE009,C008,2026-03-25,Customer Service,unusual_export,obvious,1,70.0,,
+CASE010,C003,2026-03-27,Customer Service,temporal_combined,obvious,1,70.0,124.0,21.200616009182202
+CASE011,M002,2026-03-20,Manager,temporal_combined,obvious,1,139.0,115.0,22.13916279818926
+CASE012,M003,2026-03-23,Manager,unusual_export,obvious,1,170.0,,
+CASE013,M003,2026-03-24,Manager,unusual_record_access,obvious,1,,117.0,
+CASE014,M007,2026-03-24,Manager,temporal_combined,obvious,1,142.0,98.0,23.4592573049628
+CASE015,M004,2026-03-25,Manager,unusual_record_access,obvious,1,,125.0,
+CASE016,M007,2026-03-25,Manager,temporal_combined,obvious,1,144.0,103.0,22.648781714290006
+CASE017,M004,2026-03-26,Manager,unusual_export,obvious,1,153.0,,
+CASE018,M007,2026-03-26,Manager,temporal_combined,obvious,1,158.0,95.0,22.916661480153383
+CASE019,M009,2026-03-26,Manager,unusual_record_access,obvious,1,,127.0,
+CASE020,M008,2026-03-27,Manager,unusual_export,obvious,1,174.0,,
+CASE021,T005,2026-03-16,Teller,unusual_export,obvious,1,48.0,,
+CASE022,T005,2026-03-17,Teller,unusual_record_access,obvious,1,,110.0,
+CASE023,T006,2026-03-18,Teller,temporal_combined,obvious,1,31.0,99.0,21.274847182264054
+CASE024,T004,2026-03-20,Teller,temporal_combined,obvious,1,40.0,94.0,22.893069178866572
+CASE025,T008,2026-03-23,Teller,unusual_export,obvious,1,48.0,,
+CASE026,T006,2026-03-24,Teller,temporal_combined,obvious,1,40.0,91.0,22.608061314382038
+CASE027,T010,2026-03-24,Teller,unusual_export,obvious,1,48.0,,
+CASE028,T004,2026-03-25,Teller,unusual_record_access,obvious,1,,118.0,
+CASE029,T002,2026-03-27,Teller,unusual_record_access,obvious,1,,119.0,
+CASE030,T009,2026-03-27,Teller,temporal_combined,obvious,1,32.0,97.0,21.51685604190314

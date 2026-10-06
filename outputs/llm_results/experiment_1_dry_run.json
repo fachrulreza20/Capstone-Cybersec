@@ -1,0 +1,60 @@
+{
+  "experiment": "experiment_1",
+  "dry_run": true,
+  "candidate_input": {
+    "employee_context": {
+      "user_id": "C001",
+      "date": "2026-03-20",
+      "role": "Customer Service",
+      "role_context": "Customer enquiry and account-maintenance role with relatively high customer-record access and limited data export activity."
+    },
+    "behaviour_summary": {
+      "event_count": 37,
+      "transaction_count": 4,
+      "customer_record_access_count": 26,
+      "download_event_count": 5,
+      "download_total": 12,
+      "records_accessed_total": 167,
+      "vip_access_count": 0,
+      "failed_login_count": 0,
+      "unknown_ip_count": 0,
+      "first_activity_hour": 8.768611111111111,
+      "last_activity_hour": 16.481666666666666,
+      "activity_duration_hours": 7.713055555555556
+    },
+    "ml_evidence": {
+      "anomaly_score": 0.4585241405144405,
+      "threshold": 0.5521464960734026,
+      "prediction": "Normal"
+    },
+    "rule_evidence": {
+      "after_hours": false,
+      "large_export": false,
+      "high_record_access": true,
+      "rules_triggered": 1,
+      "prediction": "Anomaly"
+    }
+  },
+  "response_id": "resp_077fb2764a30dab6006ac38c83e37487d0bf160fd3568dcf35",
+  "model": "gpt-5-nano-2025-08-07",
+  "prompt_version": "v2",
+  "assessment": {
+    "risk_level": "Medium",
+    "investigation_priority": "Review",
+    "summary": "For user C001, 37 events included 26 customer record accesses and 167 records touched, with 5 download events. The Isolation Forest flags this day as Normal (score 0.459 below threshold 0.552), but a deterministic rule reports high_record_access triggered (1 rule) with Anomaly; no failed logins or unknown IPs observed. The mixed signals warrant contextual review rather than assuming threat or policy violation.",
+    "evidence": [
+      "Isolation Forest: anomaly_score 0.4585, threshold 0.5521, prediction Normal.",
+      "Deterministic rule: high_record_access true, rules_triggered 1, prediction Anomaly.",
+      "Behaviour: customer_record_access_count 26; records_accessed_total 167; download_event_count 5; download_total 12; transaction_count 4.",
+      "Activity window: first_activity_hour 8.77, last_activity_hour 16.48, activity_duration_hours 7.71; role_context: Customer Service."
+    ],
+    "role_context": "The role involves customer enquiry and account maintenance with relatively high customer-record access, which increases baseline access to records. This context means high-record-access by itself is less unusual and requires business-justification checks.",
+    "uncertainty": "The evidence does not establish intent or necessity for access. It is unclear whether the high-record-access was tied to specific customer inquiries or routine workflow; ml and rules disagree, so no conclusion about risk level can be made beyond an indicator requiring review.",
+    "recommended_action": "Perform a focused review of the access events and downloads for that day, verify the purpose of the 26 record accesses, and corroborate with customer-service ticket context; if discrepancies exist, escalate for policy-adherence check without assuming compromise."
+  },
+  "usage": {
+    "input_tokens": 932,
+    "output_tokens": 2402,
+    "total_tokens": 3334
+  }
+}

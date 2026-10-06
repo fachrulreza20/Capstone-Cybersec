@@ -1,0 +1,4 @@
+experiment,difficulty,true_anomalies,both_detected,rule_only,ml_only,missed_by_both,normal_cases,fp_both,fp_ml_only,fp_rule_only,normal_neither_flagged
+experiment_1,obvious,30,14,16,0,0,270,9,4,33,224
+experiment_2,moderate,30,14,16,0,0,270,9,4,33,224
+experiment_3,subtle,30,8,18,0,4,270,9,4,33,224

@@ -1,0 +1,11 @@
+experiment,true_label,risk_level,count
+experiment_1,0,High,1
+experiment_1,0,Medium,45
+experiment_1,1,High,10
+experiment_1,1,Medium,20
+experiment_2,0,Medium,46
+experiment_2,1,High,6
+experiment_2,1,Medium,24
+experiment_3,0,Medium,46
+experiment_3,1,High,2
+experiment_3,1,Medium,24

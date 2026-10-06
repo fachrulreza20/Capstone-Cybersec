@@ -1,0 +1,4 @@
+experiment,high_total,high_true_anomaly,high_normal,high_precision
+experiment_1,11,10,1,0.9090909090909091
+experiment_2,6,6,0,1.0
+experiment_3,2,2,0,1.0

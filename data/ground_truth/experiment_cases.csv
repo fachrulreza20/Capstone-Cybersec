@@ -1,0 +1,31 @@
+case_id,user_id,date,role,scenario,download_total,records_accessed_total,last_activity_hour
+CASE001,C002,2026-03-16,Customer Service,unusual_record_access,13,77,16.30888888888889
+CASE002,C006,2026-03-16,Customer Service,temporal_combined,13,78,16.74638888888889
+CASE003,C007,2026-03-16,Customer Service,unusual_export,14,70,16.703333333333333
+CASE004,C009,2026-03-17,Customer Service,temporal_combined,27,54,15.52527777777778
+CASE005,C002,2026-03-18,Customer Service,unusual_record_access,35,70,16.105555555555558
+CASE006,C007,2026-03-19,Customer Service,temporal_combined,20,66,15.830277777777775
+CASE007,C001,2026-03-20,Customer Service,unusual_record_access,12,58,16.481666666666666
+CASE008,C008,2026-03-23,Customer Service,unusual_export,23,61,16.232777777777777
+CASE009,C008,2026-03-25,Customer Service,unusual_export,10,71,16.798333333333336
+CASE010,C003,2026-03-27,Customer Service,temporal_combined,24,58,16.576666666666668
+CASE011,M002,2026-03-20,Manager,temporal_combined,45,34,17.539722222222224
+CASE012,M003,2026-03-23,Manager,unusual_export,25,38,17.65694444444444
+CASE013,M003,2026-03-24,Manager,unusual_record_access,60,45,16.889444444444443
+CASE014,M007,2026-03-24,Manager,temporal_combined,36,17,16.351111111111113
+CASE015,M004,2026-03-25,Manager,unusual_record_access,42,20,17.64
+CASE016,M007,2026-03-25,Manager,temporal_combined,39,30,16.488611111111112
+CASE017,M004,2026-03-26,Manager,unusual_export,86,34,16.940833333333334
+CASE018,M007,2026-03-26,Manager,temporal_combined,55,28,16.575
+CASE019,M009,2026-03-26,Manager,unusual_record_access,85,37,17.29361111111111
+CASE020,M008,2026-03-27,Manager,unusual_export,70,32,17.052500000000002
+CASE021,T005,2026-03-16,Teller,unusual_export,6,55,17.184166666666666
+CASE022,T005,2026-03-17,Teller,unusual_record_access,13,43,17.014444444444443
+CASE023,T006,2026-03-18,Teller,temporal_combined,9,41,17.18277777777778
+CASE024,T004,2026-03-20,Teller,temporal_combined,8,39,15.835
+CASE025,T008,2026-03-23,Teller,unusual_export,4,26,16.609722222222224
+CASE026,T006,2026-03-24,Teller,temporal_combined,8,34,16.66583333333333
+CASE027,T010,2026-03-24,Teller,unusual_export,9,45,16.600833333333334
+CASE028,T004,2026-03-25,Teller,unusual_record_access,5,34,16.353611111111114
+CASE029,T002,2026-03-27,Teller,unusual_record_access,8,48,17.019166666666667
+CASE030,T009,2026-03-27,Teller,temporal_combined,8,32,16.868333333333332

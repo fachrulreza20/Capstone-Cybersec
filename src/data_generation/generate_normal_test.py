@@ -1,10 +1,13 @@
-import json
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 
 from src.data_generation.generate_normal_training import (
-    generate_dataset,
+    create_employee_ids,
+    generate_user_day,
+    get_working_days,
+    load_json,
 )
 
 
@@ -31,53 +34,60 @@ OUTPUT_PATH = (
 
 
 def main():
-    # Load normal synthetic banking behaviour configuration.
-    with open(
-        SYNTHETIC_CONFIG_PATH,
-        "r",
-        encoding="utf-8",
-    ) as file:
-        synthetic_config = json.load(file)
+    synthetic_config = load_json(
+        SYNTHETIC_CONFIG_PATH
+    )
 
-    # Load test-period configuration.
-    with open(
-        EXPERIMENT_CONFIG_PATH,
-        "r",
-        encoding="utf-8",
-    ) as file:
-        experiment_config = json.load(file)
+    experiment_config = load_json(
+        EXPERIMENT_CONFIG_PATH
+    )
 
     test_config = experiment_config["test_base"]
 
-    random_seed = test_config["random_seed"]
+    seed = test_config["random_seed"]
     start_date = test_config["start_date"]
-    working_days = test_config["working_days"]
+    number_of_days = test_config["working_days"]
 
-    # IMPORTANT:
-    # Copy the normal training configuration so that the
-    # underlying role behaviour remains identical.
-    test_synthetic_config = synthetic_config.copy()
+    rng = np.random.default_rng(seed)
 
-    test_synthetic_config["training"] = (
-        synthetic_config["training"].copy()
+    working_days = get_working_days(
+        start_date,
+        number_of_days,
     )
 
-    test_synthetic_config["training"]["start_date"] = (
-        start_date
+    # Keep the same employee population size
+    # used in training.
+    employees_per_role = (
+        synthetic_config["training"]["employees_per_role"]
     )
 
-    test_synthetic_config["training"]["working_days"] = (
-        working_days
-    )
+    all_rows = []
 
-    rng = np.random.default_rng(random_seed)
+    for role, role_config in (
+        synthetic_config["roles"].items()
+    ):
+        employee_ids = create_employee_ids(
+            role_config,
+            employees_per_role,
+        )
 
-    # Generate NORMAL test events using exactly the same
-    # behavioural assumptions as training/validation.
-    df = generate_dataset(
-        config=test_synthetic_config,
-        rng=rng,
-    )
+        for user_id in employee_ids:
+            for date in working_days:
+                rows = generate_user_day(
+                    rng=rng,
+                    date=date,
+                    user_id=user_id,
+                    role=role,
+                    role_config=role_config,
+                )
+
+                all_rows.extend(rows)
+
+    df = pd.DataFrame(all_rows)
+
+    df = df.sort_values(
+        ["timestamp", "user_id"]
+    ).reset_index(drop=True)
 
     OUTPUT_PATH.parent.mkdir(
         parents=True,
@@ -90,7 +100,7 @@ def main():
     )
 
     print("=== Normal Test Data Generated ===")
-    print(f"Random seed      : {random_seed}")
+    print(f"Random seed      : {seed}")
     print(
         f"Employees        : "
         f"{df['user_id'].nunique()}"
@@ -101,7 +111,7 @@ def main():
     )
     print(
         f"Working days     : "
-        f"{working_days}"
+        f"{len(working_days)}"
     )
     print(
         f"Raw audit events : "

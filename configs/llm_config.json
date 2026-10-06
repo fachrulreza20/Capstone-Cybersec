@@ -1,0 +1,33 @@
+{
+  "candidate_selection": {
+    "method": "rules_or_ml",
+    "description": "Send a user-day to contextual analysis when either the Isolation Forest or deterministic rule baseline flags it."
+  },
+
+  "include_behaviour_features": [
+    "event_count",
+    "transaction_count",
+    "customer_record_access_count",
+    "download_event_count",
+    "download_total",
+    "records_accessed_total",
+    "vip_access_count",
+    "failed_login_count",
+    "unknown_ip_count",
+    "first_activity_hour",
+    "last_activity_hour",
+    "activity_duration_hours"
+  ],
+
+  "include_ml_evidence": true,
+  "include_rule_evidence": true,
+  "include_raw_timeline": false,
+
+  "exclude_from_llm": [
+    "true_label",
+    "case_id",
+    "scenario",
+    "difficulty",
+    "experiment_difficulty"
+  ]
+}

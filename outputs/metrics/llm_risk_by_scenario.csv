@@ -1,0 +1,13 @@
+experiment,scenario,risk_level,count
+experiment_1,temporal_combined,High,10
+experiment_1,temporal_combined,Medium,2
+experiment_1,unusual_export,Medium,9
+experiment_1,unusual_record_access,Medium,9
+experiment_2,temporal_combined,High,6
+experiment_2,temporal_combined,Medium,6
+experiment_2,unusual_export,Medium,9
+experiment_2,unusual_record_access,Medium,9
+experiment_3,temporal_combined,High,2
+experiment_3,temporal_combined,Medium,10
+experiment_3,unusual_export,Medium,6
+experiment_3,unusual_record_access,Medium,8

@@ -6,6 +6,8 @@
   },
 
   "experiment_design": {
+    "case_selection_seed": 342,
+    "injection_seed": 442,
     "anomaly_user_days_per_role": 10,
     "scenario_allocation_per_role": {
       "unusual_export": 3,

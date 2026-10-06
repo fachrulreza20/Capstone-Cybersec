@@ -1,0 +1,31 @@
+case_id,user_id,role,scenario,experiment_1,experiment_2,experiment_3
+CASE001,C002,Customer Service,unusual_record_access,1.0,1.0,1.0
+CASE002,C006,Customer Service,temporal_combined,2.0,1.0,2.0
+CASE003,C007,Customer Service,unusual_export,1.0,1.0,
+CASE004,C009,Customer Service,temporal_combined,1.0,2.0,2.0
+CASE005,C002,Customer Service,unusual_record_access,1.0,1.0,1.0
+CASE006,C007,Customer Service,temporal_combined,2.0,2.0,1.0
+CASE007,C001,Customer Service,unusual_record_access,1.0,1.0,1.0
+CASE008,C008,Customer Service,unusual_export,1.0,1.0,
+CASE009,C008,Customer Service,unusual_export,1.0,1.0,1.0
+CASE010,C003,Customer Service,temporal_combined,2.0,1.0,1.0
+CASE011,M002,Manager,temporal_combined,1.0,1.0,1.0
+CASE012,M003,Manager,unusual_export,1.0,1.0,1.0
+CASE013,M003,Manager,unusual_record_access,1.0,1.0,1.0
+CASE014,M007,Manager,temporal_combined,2.0,1.0,1.0
+CASE015,M004,Manager,unusual_record_access,1.0,1.0,1.0
+CASE016,M007,Manager,temporal_combined,2.0,1.0,1.0
+CASE017,M004,Manager,unusual_export,1.0,1.0,1.0
+CASE018,M007,Manager,temporal_combined,2.0,1.0,1.0
+CASE019,M009,Manager,unusual_record_access,1.0,1.0,1.0
+CASE020,M008,Manager,unusual_export,1.0,1.0,1.0
+CASE021,T005,Teller,unusual_export,1.0,1.0,1.0
+CASE022,T005,Teller,unusual_record_access,1.0,1.0,
+CASE023,T006,Teller,temporal_combined,2.0,2.0,1.0
+CASE024,T004,Teller,temporal_combined,2.0,2.0,1.0
+CASE025,T008,Teller,unusual_export,1.0,1.0,1.0
+CASE026,T006,Teller,temporal_combined,2.0,2.0,1.0
+CASE027,T010,Teller,unusual_export,1.0,1.0,
+CASE028,T004,Teller,unusual_record_access,1.0,1.0,1.0
+CASE029,T002,Teller,unusual_record_access,1.0,1.0,1.0
+CASE030,T009,Teller,temporal_combined,2.0,2.0,1.0

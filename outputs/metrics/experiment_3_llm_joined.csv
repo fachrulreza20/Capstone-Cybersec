@@ -1,0 +1,73 @@
+experiment,user_id,date,role,candidate_key,risk_level,investigation_priority,llm_investigate,true_label
+experiment_3,C001,2026-03-20,Customer Service,C001|2026-03-20|Customer Service,Medium,Review,1,1
+experiment_3,C001,2026-03-25,Customer Service,C001|2026-03-25|Customer Service,Medium,Review,1,0
+experiment_3,C002,2026-03-16,Customer Service,C002|2026-03-16|Customer Service,Medium,Review,1,1
+experiment_3,C002,2026-03-18,Customer Service,C002|2026-03-18|Customer Service,Medium,Review,1,1
+experiment_3,C002,2026-03-19,Customer Service,C002|2026-03-19|Customer Service,Medium,Review,1,0
+experiment_3,C002,2026-03-23,Customer Service,C002|2026-03-23|Customer Service,Medium,Review,1,0
+experiment_3,C002,2026-03-24,Customer Service,C002|2026-03-24|Customer Service,Medium,Review,1,0
+experiment_3,C003,2026-03-27,Customer Service,C003|2026-03-27|Customer Service,Medium,Review,1,1
+experiment_3,C004,2026-03-18,Customer Service,C004|2026-03-18|Customer Service,Medium,Review,1,0
+experiment_3,C004,2026-03-19,Customer Service,C004|2026-03-19|Customer Service,Medium,Review,1,0
+experiment_3,C004,2026-03-20,Customer Service,C004|2026-03-20|Customer Service,Medium,Review,1,0
+experiment_3,C005,2026-03-16,Customer Service,C005|2026-03-16|Customer Service,Medium,Review,1,0
+experiment_3,C005,2026-03-18,Customer Service,C005|2026-03-18|Customer Service,Medium,Review,1,0
+experiment_3,C005,2026-03-26,Customer Service,C005|2026-03-26|Customer Service,Medium,Review,1,0
+experiment_3,C006,2026-03-16,Customer Service,C006|2026-03-16|Customer Service,High,Escalate,1,1
+experiment_3,C007,2026-03-19,Customer Service,C007|2026-03-19|Customer Service,Medium,Review,1,1
+experiment_3,C007,2026-03-24,Customer Service,C007|2026-03-24|Customer Service,Medium,Review,1,0
+experiment_3,C007,2026-03-26,Customer Service,C007|2026-03-26|Customer Service,Medium,Review,1,0
+experiment_3,C008,2026-03-25,Customer Service,C008|2026-03-25|Customer Service,Medium,Review,1,1
+experiment_3,C009,2026-03-16,Customer Service,C009|2026-03-16|Customer Service,Medium,Review,1,0
+experiment_3,C009,2026-03-17,Customer Service,C009|2026-03-17|Customer Service,High,Escalate,1,1
+experiment_3,C009,2026-03-23,Customer Service,C009|2026-03-23|Customer Service,Medium,Review,1,0
+experiment_3,C010,2026-03-16,Customer Service,C010|2026-03-16|Customer Service,Medium,Review,1,0
+experiment_3,C010,2026-03-25,Customer Service,C010|2026-03-25|Customer Service,Medium,Review,1,0
+experiment_3,M001,2026-03-20,Manager,M001|2026-03-20|Manager,Medium,Review,1,0
+experiment_3,M001,2026-03-23,Manager,M001|2026-03-23|Manager,Medium,Review,1,0
+experiment_3,M002,2026-03-20,Manager,M002|2026-03-20|Manager,Medium,Review,1,1
+experiment_3,M002,2026-03-26,Manager,M002|2026-03-26|Manager,Medium,Review,1,0
+experiment_3,M003,2026-03-23,Manager,M003|2026-03-23|Manager,Medium,Review,1,1
+experiment_3,M003,2026-03-24,Manager,M003|2026-03-24|Manager,Medium,Review,1,1
+experiment_3,M004,2026-03-16,Manager,M004|2026-03-16|Manager,Medium,Review,1,0
+experiment_3,M004,2026-03-25,Manager,M004|2026-03-25|Manager,Medium,Review,1,1
+experiment_3,M004,2026-03-26,Manager,M004|2026-03-26|Manager,Medium,Review,1,1
+experiment_3,M005,2026-03-16,Manager,M005|2026-03-16|Manager,Medium,Review,1,0
+experiment_3,M005,2026-03-25,Manager,M005|2026-03-25|Manager,Medium,Review,1,0
+experiment_3,M006,2026-03-17,Manager,M006|2026-03-17|Manager,Medium,Review,1,0
+experiment_3,M007,2026-03-17,Manager,M007|2026-03-17|Manager,Medium,Review,1,0
+experiment_3,M007,2026-03-18,Manager,M007|2026-03-18|Manager,Medium,Review,1,0
+experiment_3,M007,2026-03-24,Manager,M007|2026-03-24|Manager,Medium,Review,1,1
+experiment_3,M007,2026-03-25,Manager,M007|2026-03-25|Manager,Medium,Review,1,1
+experiment_3,M007,2026-03-26,Manager,M007|2026-03-26|Manager,Medium,Review,1,1
+experiment_3,M008,2026-03-19,Manager,M008|2026-03-19|Manager,Medium,Review,1,0
+experiment_3,M008,2026-03-25,Manager,M008|2026-03-25|Manager,Medium,Review,1,0
+experiment_3,M008,2026-03-27,Manager,M008|2026-03-27|Manager,Medium,Review,1,1
+experiment_3,M009,2026-03-24,Manager,M009|2026-03-24|Manager,Medium,Review,1,0
+experiment_3,M009,2026-03-25,Manager,M009|2026-03-25|Manager,Medium,Review,1,0
+experiment_3,M009,2026-03-26,Manager,M009|2026-03-26|Manager,Medium,Review,1,1
+experiment_3,M010,2026-03-19,Manager,M010|2026-03-19|Manager,Medium,Review,1,0
+experiment_3,M010,2026-03-25,Manager,M010|2026-03-25|Manager,Medium,Review,1,0
+experiment_3,T001,2026-03-26,Teller,T001|2026-03-26|Teller,Medium,Review,1,0
+experiment_3,T002,2026-03-19,Teller,T002|2026-03-19|Teller,Medium,Review,1,0
+experiment_3,T002,2026-03-26,Teller,T002|2026-03-26|Teller,Medium,Review,1,0
+experiment_3,T002,2026-03-27,Teller,T002|2026-03-27|Teller,Medium,Review,1,1
+experiment_3,T003,2026-03-18,Teller,T003|2026-03-18|Teller,Medium,Review,1,0
+experiment_3,T004,2026-03-20,Teller,T004|2026-03-20|Teller,Medium,Review,1,1
+experiment_3,T004,2026-03-25,Teller,T004|2026-03-25|Teller,Medium,Review,1,1
+experiment_3,T005,2026-03-16,Teller,T005|2026-03-16|Teller,Medium,Review,1,1
+experiment_3,T005,2026-03-23,Teller,T005|2026-03-23|Teller,Medium,Review,1,0
+experiment_3,T006,2026-03-18,Teller,T006|2026-03-18|Teller,Medium,Review,1,1
+experiment_3,T006,2026-03-24,Teller,T006|2026-03-24|Teller,Medium,Review,1,1
+experiment_3,T007,2026-03-17,Teller,T007|2026-03-17|Teller,Medium,Review,1,0
+experiment_3,T007,2026-03-20,Teller,T007|2026-03-20|Teller,Medium,Review,1,0
+experiment_3,T007,2026-03-24,Teller,T007|2026-03-24|Teller,Medium,Review,1,0
+experiment_3,T008,2026-03-19,Teller,T008|2026-03-19|Teller,Medium,Review,1,0
+experiment_3,T008,2026-03-23,Teller,T008|2026-03-23|Teller,Medium,Review,1,1
+experiment_3,T008,2026-03-27,Teller,T008|2026-03-27|Teller,Medium,Review,1,0
+experiment_3,T009,2026-03-17,Teller,T009|2026-03-17|Teller,Medium,Review,1,0
+experiment_3,T009,2026-03-18,Teller,T009|2026-03-18|Teller,Medium,Review,1,0
+experiment_3,T009,2026-03-26,Teller,T009|2026-03-26|Teller,Medium,Review,1,0
+experiment_3,T009,2026-03-27,Teller,T009|2026-03-27|Teller,Medium,Review,1,1
+experiment_3,T010,2026-03-25,Teller,T010|2026-03-25|Teller,Medium,Review,1,0
+experiment_3,T010,2026-03-26,Teller,T010|2026-03-26|Teller,Medium,Review,1,0

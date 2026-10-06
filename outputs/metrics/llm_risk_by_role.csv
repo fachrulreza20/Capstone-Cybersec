@@ -1,0 +1,16 @@
+experiment,role,risk_level,count
+experiment_1,Customer Service,High,4
+experiment_1,Customer Service,Medium,22
+experiment_1,Manager,High,3
+experiment_1,Manager,Medium,22
+experiment_1,Teller,High,4
+experiment_1,Teller,Medium,21
+experiment_2,Customer Service,High,2
+experiment_2,Customer Service,Medium,24
+experiment_2,Manager,Medium,25
+experiment_2,Teller,High,4
+experiment_2,Teller,Medium,21
+experiment_3,Customer Service,High,2
+experiment_3,Customer Service,Medium,22
+experiment_3,Manager,Medium,25
+experiment_3,Teller,Medium,23

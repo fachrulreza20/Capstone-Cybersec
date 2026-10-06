@@ -1,0 +1,31 @@
+case_id,user_id,date,role,scenario,difficulty,ground_truth,target_download_total,target_records_accessed_total,target_last_activity_hour
+CASE001,C002,2026-03-16,Customer Service,unusual_record_access,subtle,1,,96.0,
+CASE002,C006,2026-03-16,Customer Service,temporal_combined,subtle,1,35.0,89.0,17.82296447253978
+CASE003,C007,2026-03-16,Customer Service,unusual_export,subtle,1,32.0,,
+CASE004,C009,2026-03-17,Customer Service,temporal_combined,subtle,1,30.0,93.0,17.677944218750525
+CASE005,C002,2026-03-18,Customer Service,unusual_record_access,subtle,1,,87.0,
+CASE006,C007,2026-03-19,Customer Service,temporal_combined,subtle,1,33.0,85.0,17.630632256030317
+CASE007,C001,2026-03-20,Customer Service,unusual_record_access,subtle,1,,87.0,
+CASE008,C008,2026-03-23,Customer Service,unusual_export,subtle,1,32.0,,
+CASE009,C008,2026-03-25,Customer Service,unusual_export,subtle,1,34.0,,
+CASE010,C003,2026-03-27,Customer Service,temporal_combined,subtle,1,32.0,93.0,17.92573316650329
+CASE011,M002,2026-03-20,Manager,temporal_combined,subtle,1,87.0,55.0,18.39252234801041
+CASE012,M003,2026-03-23,Manager,unusual_export,subtle,1,90.0,,
+CASE013,M003,2026-03-24,Manager,unusual_record_access,subtle,1,,65.0,
+CASE014,M007,2026-03-24,Manager,temporal_combined,subtle,1,82.0,55.0,18.855774798455418
+CASE015,M004,2026-03-25,Manager,unusual_record_access,subtle,1,,59.0,
+CASE016,M007,2026-03-25,Manager,temporal_combined,subtle,1,98.0,55.0,18.258029042801237
+CASE017,M004,2026-03-26,Manager,unusual_export,subtle,1,104.0,,
+CASE018,M007,2026-03-26,Manager,temporal_combined,subtle,1,92.0,65.0,18.369080355104717
+CASE019,M009,2026-03-26,Manager,unusual_record_access,subtle,1,,60.0,
+CASE020,M008,2026-03-27,Manager,unusual_export,subtle,1,98.0,,
+CASE021,T005,2026-03-16,Teller,unusual_export,subtle,1,17.0,,
+CASE022,T005,2026-03-17,Teller,unusual_record_access,subtle,1,,53.0,
+CASE023,T006,2026-03-18,Teller,temporal_combined,subtle,1,15.0,54.0,17.824702185632077
+CASE024,T004,2026-03-20,Teller,temporal_combined,subtle,1,20.0,53.0,18.116772710054576
+CASE025,T008,2026-03-23,Teller,unusual_export,subtle,1,20.0,,
+CASE026,T006,2026-03-24,Teller,temporal_combined,subtle,1,16.0,50.0,17.924886153781408
+CASE027,T010,2026-03-24,Teller,unusual_export,subtle,1,17.0,,
+CASE028,T004,2026-03-25,Teller,unusual_record_access,subtle,1,,57.0,
+CASE029,T002,2026-03-27,Teller,unusual_record_access,subtle,1,,65.0,
+CASE030,T009,2026-03-27,Teller,temporal_combined,subtle,1,20.0,51.0,17.683658127511556
