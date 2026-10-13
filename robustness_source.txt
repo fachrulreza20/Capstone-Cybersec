@@ -1,0 +1,1133 @@
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from src.data_generation.generate_normal_training import (
+    create_employee_ids,
+    generate_user_day,
+    get_working_days,
+    load_json,
+)
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+SYNTHETIC_CONFIG_PATH = (
+    PROJECT_ROOT
+    / "configs"
+    / "synthetic_data_config.json"
+)
+
+EXPERIMENT_CONFIG_PATH = (
+    PROJECT_ROOT
+    / "configs"
+    / "experiment_config.json"
+)
+
+OUTPUT_PATH = (
+    PROJECT_ROOT
+    / "data"
+    / "raw"
+    / "normal_test.csv"
+)
+
+
+def main():
+    synthetic_config = load_json(
+        SYNTHETIC_CONFIG_PATH
+    )
+
+    experiment_config = load_json(
+        EXPERIMENT_CONFIG_PATH
+    )
+
+    test_config = experiment_config["test_base"]
+
+    seed = test_config["random_seed"]
+    start_date = test_config["start_date"]
+    number_of_days = test_config["working_days"]
+
+    rng = np.random.default_rng(seed)
+
+    working_days = get_working_days(
+        start_date,
+        number_of_days,
+    )
+
+    # Keep the same employee population size
+    # used in training.
+    employees_per_role = (
+        synthetic_config["training"]["employees_per_role"]
+    )
+
+    all_rows = []
+
+    for role, role_config in (
+        synthetic_config["roles"].items()
+    ):
+        employee_ids = create_employee_ids(
+            role_config,
+            employees_per_role,
+        )
+
+        for user_id in employee_ids:
+            for date in working_days:
+                rows = generate_user_day(
+                    rng=rng,
+                    date=date,
+                    user_id=user_id,
+                    role=role,
+                    role_config=role_config,
+                )
+
+                all_rows.extend(rows)
+
+    df = pd.DataFrame(all_rows)
+
+    df = df.sort_values(
+        ["timestamp", "user_id"]
+    ).reset_index(drop=True)
+
+    OUTPUT_PATH.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    df.to_csv(
+        OUTPUT_PATH,
+        index=False,
+    )
+
+    print("=== Normal Test Data Generated ===")
+    print(f"Random seed      : {seed}")
+    print(
+        f"Employees        : "
+        f"{df['user_id'].nunique()}"
+    )
+    print(
+        f"Roles            : "
+        f"{df['role'].nunique()}"
+    )
+    print(
+        f"Working days     : "
+        f"{len(working_days)}"
+    )
+    print(
+        f"Raw audit events : "
+        f"{len(df):,}"
+    )
+    print(f"Output           : {OUTPUT_PATH}")
+
+
+if __name__ == "__main__":
+    main()
+import json
+from datetime import timedelta
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+CONFIG_PATH = PROJECT_ROOT / "configs" / "experiment_config.json"
+RAW_BASE_PATH = PROJECT_ROOT / "data" / "raw" / "normal_test.csv"
+CASES_PATH = PROJECT_ROOT / "data" / "ground_truth" / "experiment_cases.csv"
+
+RAW_OUTPUT_DIR = PROJECT_ROOT / "data" / "raw"
+GROUND_TRUTH_DIR = PROJECT_ROOT / "data" / "ground_truth"
+
+
+def load_config():
+    with open(CONFIG_PATH, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def random_integer_target(rng, target_range):
+    low, high = target_range
+    return int(rng.integers(low, high + 1))
+
+
+def random_float_target(rng, target_range):
+    low, high = target_range
+    return float(rng.uniform(low, high))
+
+
+def decimal_hour_to_timestamp(date_value, decimal_hour):
+    date = pd.Timestamp(date_value)
+
+    hour = int(decimal_hour)
+    minute_float = (decimal_hour - hour) * 60
+    minute = int(minute_float)
+    second = int((minute_float - minute) * 60)
+
+    return pd.Timestamp(
+        year=date.year,
+        month=date.month,
+        day=date.day,
+        hour=hour,
+        minute=minute,
+        second=second,
+    )
+
+
+def add_download_events(
+    df,
+    user_id,
+    date_value,
+    target_total,
+):
+    date_value = pd.Timestamp(date_value).date()
+
+    mask = (
+        (df["user_id"] == user_id)
+        & (df["timestamp"].dt.date == date_value)
+    )
+
+    current_total = int(
+        df.loc[mask, "download_count"].sum()
+    )
+
+    amount_needed = target_total - current_total
+
+    if amount_needed <= 0:
+        return df
+
+    user_day = df.loc[mask].copy()
+
+    last_time = user_day["timestamp"].max()
+
+    template = user_day.iloc[-1].copy()
+
+    new_row = template.copy()
+
+    # Insert before/around the end of the existing day.
+    new_row["timestamp"] = last_time - timedelta(seconds=30)
+    new_row["event_type"] = "download"
+    new_row["records_accessed"] = 0
+    new_row["download_count"] = amount_needed
+    new_row["failed_login"] = 0
+    new_row["account_type"] = "standard"
+
+    return pd.concat(
+        [df, pd.DataFrame([new_row])],
+        ignore_index=True,
+    )
+
+
+def add_record_access_events(
+    df,
+    user_id,
+    date_value,
+    target_total,
+):
+    date_value = pd.Timestamp(date_value).date()
+
+    mask = (
+        (df["user_id"] == user_id)
+        & (df["timestamp"].dt.date == date_value)
+    )
+
+    current_total = int(
+        df.loc[mask, "records_accessed"].sum()
+    )
+
+    amount_needed = target_total - current_total
+
+    if amount_needed <= 0:
+        return df
+
+    user_day = df.loc[mask].copy()
+
+    last_time = user_day["timestamp"].max()
+
+    template = user_day.iloc[-1].copy()
+
+    new_row = template.copy()
+
+    new_row["timestamp"] = last_time - timedelta(seconds=20)
+    new_row["event_type"] = "customer_record_access"
+    new_row["records_accessed"] = amount_needed
+    new_row["download_count"] = 0
+    new_row["failed_login"] = 0
+    new_row["account_type"] = "standard"
+
+    return pd.concat(
+        [df, pd.DataFrame([new_row])],
+        ignore_index=True,
+    )
+
+
+def extend_last_activity(
+    df,
+    user_id,
+    date_value,
+    target_hour,
+):
+    date_value = pd.Timestamp(date_value).date()
+
+    mask = (
+        (df["user_id"] == user_id)
+        & (df["timestamp"].dt.date == date_value)
+    )
+
+    user_day = df.loc[mask].copy()
+
+    target_timestamp = decimal_hour_to_timestamp(
+        date_value,
+        target_hour,
+    )
+
+    current_last = user_day["timestamp"].max()
+
+    if target_timestamp <= current_last:
+        return df
+
+    template = user_day.iloc[-1].copy()
+
+    new_row = template.copy()
+
+    new_row["timestamp"] = target_timestamp
+    new_row["event_type"] = "logout"
+    new_row["records_accessed"] = 0
+    new_row["download_count"] = 0
+    new_row["failed_login"] = 0
+    new_row["account_type"] = "none"
+
+    return pd.concat(
+        [df, pd.DataFrame([new_row])],
+        ignore_index=True,
+    )
+
+
+def generate_experiment(
+    base_df,
+    cases,
+    config,
+    experiment_name,
+    difficulty,
+    rng,
+):
+    df = base_df.copy()
+
+    ground_truth_rows = []
+
+    for _, case in cases.iterrows():
+        role = case["role"]
+        scenario = case["scenario"]
+        user_id = case["user_id"]
+        date_value = case["date"]
+
+        target_config = (
+            config["scenario_targets"]
+            [role][scenario][difficulty]
+        )
+
+        target_download = None
+        target_records = None
+        target_last_hour = None
+
+        if scenario == "unusual_export":
+            target_download = random_integer_target(
+                rng,
+                target_config,
+            )
+
+            df = add_download_events(
+                df,
+                user_id,
+                date_value,
+                target_download,
+            )
+
+        elif scenario == "unusual_record_access":
+            target_records = random_integer_target(
+                rng,
+                target_config,
+            )
+
+            df = add_record_access_events(
+                df,
+                user_id,
+                date_value,
+                target_records,
+            )
+
+        elif scenario == "temporal_combined":
+            target_download = random_integer_target(
+                rng,
+                target_config["download_total"],
+            )
+
+            target_records = random_integer_target(
+                rng,
+                target_config["records_accessed_total"],
+            )
+
+            target_last_hour = random_float_target(
+                rng,
+                target_config["last_activity_hour"],
+            )
+
+            df = add_download_events(
+                df,
+                user_id,
+                date_value,
+                target_download,
+            )
+
+            df = add_record_access_events(
+                df,
+                user_id,
+                date_value,
+                target_records,
+            )
+
+            df = extend_last_activity(
+                df,
+                user_id,
+                date_value,
+                target_last_hour,
+            )
+
+        ground_truth_rows.append(
+            {
+                "case_id": case["case_id"],
+                "user_id": user_id,
+                "date": date_value,
+                "role": role,
+                "scenario": scenario,
+                "difficulty": difficulty,
+                "ground_truth": 1,
+                "target_download_total": target_download,
+                "target_records_accessed_total": target_records,
+                "target_last_activity_hour": target_last_hour,
+            }
+        )
+
+    df = df.sort_values(
+        ["timestamp", "user_id"]
+    ).reset_index(drop=True)
+
+    ground_truth = pd.DataFrame(
+        ground_truth_rows
+    )
+
+    raw_output = (
+        RAW_OUTPUT_DIR
+        / f"{experiment_name}_test.csv"
+    )
+
+    gt_output = (
+        GROUND_TRUTH_DIR
+        / f"{experiment_name}_ground_truth.csv"
+    )
+
+    df.to_csv(raw_output, index=False)
+    ground_truth.to_csv(gt_output, index=False)
+
+    print(
+        f"{experiment_name}: "
+        f"{difficulty} | "
+        f"raw events={len(df):,} | "
+        f"anomaly cases={len(ground_truth)}"
+    )
+
+
+def main():
+    config = load_config()
+
+    base_df = pd.read_csv(
+        RAW_BASE_PATH,
+        parse_dates=["timestamp"],
+    )
+
+    cases = pd.read_csv(CASES_PATH)
+
+    seed = (
+        config["experiment_design"]
+        ["injection_seed"]
+    )
+
+    RAW_OUTPUT_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    GROUND_TRUTH_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    print("=== Generating Experiments ===")
+    print(f"Injection seed: {seed}\n")
+
+    for index, (
+        experiment_name,
+        difficulty,
+    ) in enumerate(
+        config["difficulty_levels"].items()
+    ):
+        # Independent deterministic RNG per experiment.
+        rng = np.random.default_rng(
+            seed + index
+        )
+
+        generate_experiment(
+            base_df=base_df,
+            cases=cases,
+            config=config,
+            experiment_name=experiment_name,
+            difficulty=difficulty,
+            rng=rng,
+        )
+
+    print("\nAll experiment datasets generated.")
+
+
+if __name__ == "__main__":
+    main()
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+CONFIG_PATH = (
+    PROJECT_ROOT
+    / "configs"
+    / "experiment_config.json"
+)
+
+INPUT_PATH = (
+    PROJECT_ROOT
+    / "data"
+    / "processed"
+    / "normal_test_user_day.csv"
+)
+
+OUTPUT_PATH = (
+    PROJECT_ROOT
+    / "data"
+    / "ground_truth"
+    / "experiment_cases.csv"
+)
+
+
+def load_config():
+    with open(CONFIG_PATH, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def is_eligible(row, scenario, subtle_target):
+    if scenario == "unusual_export":
+        return (
+            row["download_total"]
+            < subtle_target[0]
+        )
+
+    if scenario == "unusual_record_access":
+        return (
+            row["records_accessed_total"]
+            < subtle_target[0]
+        )
+
+    if scenario == "temporal_combined":
+        return (
+            row["last_activity_hour"]
+            < subtle_target["last_activity_hour"][0]
+            and row["download_total"]
+            < subtle_target["download_total"][0]
+            and row["records_accessed_total"]
+            < subtle_target["records_accessed_total"][0]
+        )
+
+    raise ValueError(
+        f"Unknown scenario: {scenario}"
+    )
+
+
+def main():
+    config = load_config()
+
+    design = config["experiment_design"]
+    targets = config["scenario_targets"]
+
+    seed = design["case_selection_seed"]
+    allocation = design[
+        "scenario_allocation_per_role"
+    ]
+
+    rng = np.random.default_rng(seed)
+
+    df = pd.read_csv(INPUT_PATH)
+
+    selected_rows = []
+
+    for role in sorted(df["role"].unique()):
+        role_df = df[
+            df["role"] == role
+        ].copy()
+
+        # Prevent the same user-day from being selected
+        # for more than one scenario.
+        available_df = role_df.copy()
+
+        for scenario, count in allocation.items():
+            subtle_target = (
+                targets[role][scenario]["subtle"]
+            )
+
+            eligible_mask = available_df.apply(
+                lambda row: is_eligible(
+                    row,
+                    scenario,
+                    subtle_target,
+                ),
+                axis=1,
+            )
+
+            eligible_df = available_df[
+                eligible_mask
+            ].copy()
+
+            if len(eligible_df) < count:
+                raise ValueError(
+                    f"Not enough eligible cases for "
+                    f"{role} / {scenario}. "
+                    f"Needed {count}, "
+                    f"available {len(eligible_df)}."
+                )
+
+            chosen_indices = rng.choice(
+                eligible_df.index.to_numpy(),
+                size=count,
+                replace=False,
+            )
+
+            chosen = available_df.loc[
+                chosen_indices
+            ].copy()
+
+            chosen["scenario"] = scenario
+
+            selected_rows.append(
+                chosen[
+                    [
+                        "user_id",
+                        "date",
+                        "role",
+                        "scenario",
+                        "download_total",
+                        "records_accessed_total",
+                        "last_activity_hour",
+                    ]
+                ]
+            )
+
+            # Remove selected user-days so they cannot
+            # appear in another scenario.
+            available_df = available_df.drop(
+                index=chosen_indices
+            )
+
+    cases = pd.concat(
+        selected_rows,
+        ignore_index=True,
+    )
+
+    cases = cases.sort_values(
+        ["role", "date", "user_id"]
+    ).reset_index(drop=True)
+
+    cases.insert(
+        0,
+        "case_id",
+        [
+            f"CASE{number:03d}"
+            for number in range(
+                1,
+                len(cases) + 1,
+            )
+        ],
+    )
+
+    OUTPUT_PATH.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    cases.to_csv(
+        OUTPUT_PATH,
+        index=False,
+    )
+
+    print("=== Eligible Experiment Cases Selected ===")
+    print(f"Selection seed : {seed}")
+    print(f"Total cases    : {len(cases)}")
+
+    print("\nCases per role:")
+    print(
+        cases["role"]
+        .value_counts()
+        .sort_index()
+    )
+
+    print("\nScenario allocation:")
+    print(
+        cases.groupby(
+            ["role", "scenario"]
+        ).size()
+    )
+
+    print(f"\nOutput: {OUTPUT_PATH}")
+
+
+if __name__ == "__main__":
+    main()
+from pathlib import Path
+
+import pandas as pd
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+PREDICTION_DIR = (
+    PROJECT_ROOT
+    / "outputs"
+    / "predictions"
+)
+
+GROUND_TRUTH_DIR = (
+    PROJECT_ROOT
+    / "data"
+    / "ground_truth"
+)
+
+METRICS_DIR = (
+    PROJECT_ROOT
+    / "outputs"
+    / "metrics"
+)
+
+
+EXPERIMENTS = {
+    "experiment_1": "obvious",
+    "experiment_2": "moderate",
+    "experiment_3": "subtle",
+}
+
+
+KEY_COLUMNS = [
+    "user_id",
+    "date",
+    "role",
+]
+
+
+def normalize_keys(df):
+    """
+    Normalize identity columns before merging.
+    """
+
+    df = df.copy()
+
+    df["user_id"] = (
+        df["user_id"]
+        .astype(str)
+        .str.strip()
+    )
+
+    df["role"] = (
+        df["role"]
+        .astype(str)
+        .str.strip()
+    )
+
+    df["date"] = (
+        pd.to_datetime(df["date"])
+        .dt.strftime("%Y-%m-%d")
+    )
+
+    return df
+
+
+def safe_divide(numerator, denominator):
+    """
+    Prevent division-by-zero errors.
+    """
+
+    if denominator == 0:
+        return 0.0
+
+    return numerator / denominator
+
+
+def evaluate_experiment(
+    experiment_name,
+    difficulty,
+):
+    prediction_path = (
+        PREDICTION_DIR
+        / f"{experiment_name}_predictions.csv"
+    )
+
+    ground_truth_path = (
+        GROUND_TRUTH_DIR
+        / f"{experiment_name}_ground_truth.csv"
+    )
+
+    if not prediction_path.exists():
+        raise FileNotFoundError(
+            f"Prediction file not found: "
+            f"{prediction_path}"
+        )
+
+    if not ground_truth_path.exists():
+        raise FileNotFoundError(
+            f"Ground-truth file not found: "
+            f"{ground_truth_path}"
+        )
+
+    predictions = pd.read_csv(
+        prediction_path
+    )
+
+    ground_truth = pd.read_csv(
+        ground_truth_path
+    )
+
+    predictions = normalize_keys(
+        predictions
+    )
+
+    ground_truth = normalize_keys(
+        ground_truth
+    )
+
+    # --------------------------------------------------------
+    # Integrity checks
+    # --------------------------------------------------------
+
+    if len(predictions) != 300:
+        raise ValueError(
+            f"{experiment_name}: "
+            f"expected 300 predictions, "
+            f"found {len(predictions)}."
+        )
+
+    if len(ground_truth) != 30:
+        raise ValueError(
+            f"{experiment_name}: "
+            f"expected 30 anomaly ground-truth rows, "
+            f"found {len(ground_truth)}."
+        )
+
+    if predictions.duplicated(
+        KEY_COLUMNS
+    ).any():
+        raise ValueError(
+            f"{experiment_name}: "
+            "duplicate prediction identities found."
+        )
+
+    if ground_truth.duplicated(
+        KEY_COLUMNS
+    ).any():
+        raise ValueError(
+            f"{experiment_name}: "
+            "duplicate ground-truth identities found."
+        )
+
+    # --------------------------------------------------------
+    # Ground truth contains only the 30 injected anomalies.
+    #
+    # Therefore:
+    # matched row   -> true_label = 1
+    # unmatched row -> true_label = 0
+    # --------------------------------------------------------
+
+    gt_metadata_columns = [
+        column
+        for column in [
+            "case_id",
+            "scenario",
+            "difficulty",
+        ]
+        if column in ground_truth.columns
+    ]
+
+    gt_for_merge = ground_truth[
+        KEY_COLUMNS
+        + gt_metadata_columns
+    ].copy()
+
+    gt_for_merge["true_label"] = 1
+
+    evaluated = predictions.merge(
+        gt_for_merge,
+        on=KEY_COLUMNS,
+        how="left",
+        validate="one_to_one",
+    )
+
+    evaluated["true_label"] = (
+        evaluated["true_label"]
+        .fillna(0)
+        .astype(int)
+    )
+
+    # --------------------------------------------------------
+    # Verify exactly 30 injected anomalies matched
+    # --------------------------------------------------------
+
+    positive_count = int(
+        evaluated["true_label"].sum()
+    )
+
+    if positive_count != 30:
+        raise ValueError(
+            f"{experiment_name}: "
+            f"expected 30 matched anomalies, "
+            f"found {positive_count}."
+        )
+
+    # --------------------------------------------------------
+    # Confusion matrix
+    # --------------------------------------------------------
+
+    tp = int(
+        (
+            (evaluated["prediction"] == 1)
+            & (evaluated["true_label"] == 1)
+        ).sum()
+    )
+
+    fp = int(
+        (
+            (evaluated["prediction"] == 1)
+            & (evaluated["true_label"] == 0)
+        ).sum()
+    )
+
+    tn = int(
+        (
+            (evaluated["prediction"] == 0)
+            & (evaluated["true_label"] == 0)
+        ).sum()
+    )
+
+    fn = int(
+        (
+            (evaluated["prediction"] == 0)
+            & (evaluated["true_label"] == 1)
+        ).sum()
+    )
+
+    total = len(evaluated)
+
+    # --------------------------------------------------------
+    # Metrics
+    # --------------------------------------------------------
+
+    accuracy = safe_divide(
+        tp + tn,
+        total,
+    )
+
+    precision = safe_divide(
+        tp,
+        tp + fp,
+    )
+
+    recall = safe_divide(
+        tp,
+        tp + fn,
+    )
+
+    if precision + recall == 0:
+        f1 = 0.0
+    else:
+        f1 = (
+            2
+            * precision
+            * recall
+            / (precision + recall)
+        )
+
+    false_positive_rate = safe_divide(
+        fp,
+        fp + tn,
+    )
+
+    # --------------------------------------------------------
+    # Save evaluated rows
+    # --------------------------------------------------------
+
+    output_path = (
+        PREDICTION_DIR
+        / f"{experiment_name}_evaluated.csv"
+    )
+
+    evaluated.to_csv(
+        output_path,
+        index=False,
+    )
+
+    # --------------------------------------------------------
+    # Console output
+    # --------------------------------------------------------
+
+    print(
+        f"\n=== {experiment_name} "
+        f"({difficulty}) ==="
+    )
+
+    print(
+        f"Total user-days : {total}"
+    )
+
+    print(
+        f"True anomalies  : "
+        f"{positive_count}"
+    )
+
+    print()
+    print("Confusion Matrix Counts")
+    print(f"TP : {tp}")
+    print(f"TN : {tn}")
+    print(f"FP : {fp}")
+    print(f"FN : {fn}")
+
+    print()
+    print("Performance Metrics")
+
+    print(
+        f"Accuracy  : "
+        f"{accuracy:.4f}"
+    )
+
+    print(
+        f"Precision : "
+        f"{precision:.4f}"
+    )
+
+    print(
+        f"Recall    : "
+        f"{recall:.4f}"
+    )
+
+    print(
+        f"F1 Score  : "
+        f"{f1:.4f}"
+    )
+
+    print(
+        f"FPR       : "
+        f"{false_positive_rate:.4f}"
+    )
+
+    print(
+        f"\nSaved evaluated predictions: "
+        f"{output_path}"
+    )
+
+    return {
+        "experiment": experiment_name,
+        "difficulty": difficulty,
+        "total_user_days": total,
+        "true_anomalies": positive_count,
+        "tp": tp,
+        "tn": tn,
+        "fp": fp,
+        "fn": fn,
+        "accuracy": accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f1_score": f1,
+        "false_positive_rate": false_positive_rate,
+    }
+
+
+def main():
+
+    METRICS_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    print(
+        "=== Experiment Evaluation ==="
+    )
+
+    results = []
+
+    for (
+        experiment_name,
+        difficulty,
+    ) in EXPERIMENTS.items():
+
+        result = evaluate_experiment(
+            experiment_name,
+            difficulty,
+        )
+
+        results.append(result)
+
+    # --------------------------------------------------------
+    # Save summary metrics
+    # --------------------------------------------------------
+
+    metrics_df = pd.DataFrame(
+        results
+    )
+
+    metrics_path = (
+        METRICS_DIR
+        / "experiment_metrics.csv"
+    )
+
+    metrics_df.to_csv(
+        metrics_path,
+        index=False,
+    )
+
+    print(
+        "\n=== Experiment Comparison ==="
+    )
+
+    display_columns = [
+        "experiment",
+        "difficulty",
+        "tp",
+        "tn",
+        "fp",
+        "fn",
+        "accuracy",
+        "precision",
+        "recall",
+        "f1_score",
+        "false_positive_rate",
+    ]
+
+    print(
+        metrics_df[
+            display_columns
+        ].to_string(
+            index=False
+        )
+    )
+
+    print(
+        f"\nSaved summary metrics: "
+        f"{metrics_path}"
+    )
+
+
+if __name__ == "__main__":
+    main()

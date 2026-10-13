@@ -1,0 +1,7 @@
+control_group,risk_level,count,percentage
+flagged_normal,Low,0,0.0
+flagged_normal,Medium,28,93.33333333333333
+flagged_normal,High,2,6.666666666666667
+unflagged_normal,Low,30,100.0
+unflagged_normal,Medium,0,0.0
+unflagged_normal,High,0,0.0
