@@ -13,6 +13,9 @@ The project investigates role-specific normal employee behaviour using synthetic
 - Fachrul Reza
 - Christopher Gustaviano
 
+## Dashboard
+https://capstone-cybersec.streamlit.app/
+
 ## Current Status
 
 Project rebuild and experimental implementation in progress.
