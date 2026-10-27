@@ -126,7 +126,15 @@ def extract_llm_index(data):
                 assessment = obj["assessment"]
             elif "risk_level" in obj and "investigation_priority" in obj:
                 assessment = obj
-            candidate = obj.get("candidate") if isinstance(obj.get("candidate"), dict) else obj
+            # Frozen batch records store inputs under "candidate_input".
+            # Keep compatibility with older records using "candidate".
+            candidate = (
+                obj.get("candidate_input")
+                if isinstance(obj.get("candidate_input"), dict)
+                else obj.get("candidate")
+                if isinstance(obj.get("candidate"), dict)
+                else obj
+            )
             context = candidate.get("employee_context") if isinstance(candidate, dict) else None
             if assessment is not None and isinstance(context, dict):
                 if all(context.get(x) is not None for x in ["user_id", "date", "role"]):
